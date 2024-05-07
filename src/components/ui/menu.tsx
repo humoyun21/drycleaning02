@@ -26,7 +26,6 @@ export default function AccountMenu() {
   const logOut = () => {
     removeDataFromCookie("token");
     navigate("/signin");
-    window.location.reload();
   }
   return (
     <React.Fragment>
@@ -40,7 +39,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar  sx={{ width: 32, height: 32 }}>H</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}>H</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
