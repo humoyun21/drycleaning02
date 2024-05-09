@@ -13,6 +13,7 @@ export default defineConfig({
       { find: '@global-interface', replacement: '/src/types/interface/auth.ts' },
       { find: '@modals', replacement: '/src/components/modal' },
       { find: '@data-service', replacement: '/src/utils/data-service.ts' },
+      { find: '@notification-ts', replacement: './src/utils/notification.ts' },
     ]
   }
 })

@@ -30,6 +30,7 @@
             "@global-interface": ["./src/types/interface/global.ts"],
             "@modals": ["./src/components/modal"],
             "@data-service": ["./src/utils/data-service.ts"],
+            "@notification-ts": ["./src/utils/notification.ts"],
 
             
         },

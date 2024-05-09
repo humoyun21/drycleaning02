@@ -20,3 +20,11 @@ export const updatePassValidationSchema = Yup.object().shape({
     new_password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/, "Password must be at least 6 characters").required("Password is required"),
     code: Yup.string().required().trim(),
 })
+
+
+// ------------- SERVICES --------------
+
+export const servicesValidationSchema = Yup.object().shape({
+    name: Yup.string().required("Xizmat nomini kiriting"),
+    price: Yup.number().required("Xizmat narxini kiriting"),
+})

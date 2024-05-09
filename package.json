@@ -24,7 +24,8 @@
     "react-router-dom": "^6.23.0",
     "react-toastify": "^10.0.5",
     "sass": "^1.74.1",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",

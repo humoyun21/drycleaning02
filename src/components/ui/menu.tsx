@@ -24,8 +24,11 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
   const logOut = () => {
+    localStorage.removeItem("token");
     removeDataFromCookie("token");
+    removeDataFromCookie("user_id");
     navigate("/signin");
+    window.location.reload()
   }
   return (
     <React.Fragment>
@@ -39,7 +42,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>H</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}>J</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
