@@ -12,6 +12,7 @@ const style = {
   minWidth: 400,
   bgcolor: "background.paper",
   border: "2px solid #fff",
+  borderRadius: 1.3,
   boxShadow: 24,
   p: 4,
 };

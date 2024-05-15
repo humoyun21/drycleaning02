@@ -1,3 +1,5 @@
 import SigUpModal from './signUp'
 import SignInModal from './signIn'
-export {SignInModal,SigUpModal}
+import OrderModal from './orders'
+// import ServicesModal from './services'
+export { SignInModal, SigUpModal, OrderModal }

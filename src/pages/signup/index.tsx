@@ -8,8 +8,10 @@ import { auth } from "@service";
 import { SigUpModal } from "@modals";
 import "./style.scss"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const index = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [modal, setModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -30,7 +32,6 @@ const index = () => {
     try {
       const response = await auth.sign_up(payload);
       response.status === 200 && setModal(true)
-      console.log(response);
     }catch (error) {
       console.log(error)
     }
@@ -118,7 +119,7 @@ const index = () => {
                 >
                   {isSubmitting ? "Yuborilmoqda..." : "Ro'yhatdan o'tish"}
                 </Button>
-
+                <p onClick={()=>navigate("/signin")} className="mt-3 cursor-pointer hover:text-blue-500">Tizimga kirish</p>
               </Form>
             )}
           </Formik>

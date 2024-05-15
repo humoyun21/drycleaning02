@@ -1,7 +1,7 @@
 export interface GetParams {
     limit: number,
     page: number,
-    owner_id: string | undefined,
+    owner_id?: string | undefined,
 }
 export interface post {
     name: string;

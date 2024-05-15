@@ -10,12 +10,13 @@ const useServiceStore = create<ServiceStore>((set) => ({
       set({ isLoading: true });
       const response = await services.get_services(params);
       if (response.status === 200) {
-        response?.data?.services.forEach((item: any, index: number) => {
+        response?.data?.services?.forEach((item: any, index: number) => {
           item.index = index + 1;
         });
         set({ data: response?.data?.services });
       }
       set({ isLoading: false });
+      return response;
     } catch (error) {
       console.log(error);
     }
