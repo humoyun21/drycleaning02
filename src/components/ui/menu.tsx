@@ -28,7 +28,7 @@ export default function AccountMenu() {
     removeDataFromCookie("token");
     removeDataFromCookie("user_id");
     navigate("/signin");
-    window.location.reload()
+    window.location.reload();
   }
   return (
     <React.Fragment>

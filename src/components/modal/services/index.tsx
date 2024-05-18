@@ -58,7 +58,6 @@ export default function BasicModal({ open, handleClose, item }: any) {
         });
       }
     }
-    console.log(item);
   };
 
   return (

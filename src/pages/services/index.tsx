@@ -5,8 +5,9 @@ import { Button, IconButton, InputBase, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Modal from "../../components/modal/services";
 import useServiceStore from "../../store/service";
+import Notification from "@notification";
 const index = () => {
-  const { getData, data, isLoading } = useServiceStore();
+  const { getData, data, isLoading, deleteData } = useServiceStore();
   const [modal, setModal] = useState(false);
   const [item, setItem] = useState({});
   const [params] = useState({
@@ -18,6 +19,11 @@ const index = () => {
   useEffect(() => {
     getData(params);
   }, [params, getData]);
+  data?.forEach((item, index) => {
+    item.index = 
+    params.page * params.limit - 
+    (params.limit - 1) + index
+  })
   const headers = [
     { title: "№", value: "index" },
     { title: "Xizmat nomi", value: "name" },
@@ -31,6 +37,20 @@ const index = () => {
   const handleClose = () => {
     setModal(false);
     setItem({});
+  }
+  const deleteItem = async (id: any) => {
+    const status = await deleteData(id);
+    if (status === 200) {
+      Notification({
+        title: "Xizmat muvaffaqiyatli o'chirildi",
+        type: "success",
+      });
+    } else {
+      Notification({
+        title: "Xatolik yuz berdi",
+        type: "error",
+      });
+    }
   }
   return (
     <div>
@@ -65,6 +85,7 @@ const index = () => {
         body={data}
         isLoading={isLoading}
         editItem={editItem}
+        deleteItem={deleteItem}
       />
     </div>
   );

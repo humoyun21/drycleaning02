@@ -13,22 +13,22 @@ interface Route{
 const routes: Route[] = [
     {
         path: "/",
-        content: "Dashboard",
+        content: "Asosiy",
         icon: <DashboardCustomizeRoundedIcon />
     },
     {
         path: "/orders",
-        content: "Orders",
+        content: "Buyurtmalar",
         icon: <DryCleaningIcon />
     },
     {
         path: "/services",
-        content: "Services",
+        content: "Xizmatlar",
         icon: <CleaningServicesIcon />
     },
     {
         path: "/clients",
-        content: "Clients",
+        content: "Mijozlar",
         icon: <GroupsIcon />
     },
 ]

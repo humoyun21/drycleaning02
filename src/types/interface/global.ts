@@ -18,4 +18,5 @@ export interface TableProps {
     body: BodyItem[],
     isLoading: boolean,
     editItem: (id: any) => any,
+    deleteItem: (id: any) => any,
 }

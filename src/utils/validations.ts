@@ -6,6 +6,7 @@ export const signUpValidationSchema = Yup.object().shape({
     password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/, "Password must be at least 6 characters").required("Password is required"),
     phone_number: Yup.string().min(19, "Invalid phone number").required("Phone number is required"),
 })
+
 export const signInValidationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/, "Password must be at least 6 characters").required("Password is required"),
@@ -20,13 +21,19 @@ export const updatePassValidationSchema = Yup.object().shape({
     code: Yup.string().required().trim(),
 })
 
+
+// ------------- SERVICES --------------
+
 export const servicesValidationSchema = Yup.object().shape({
     name: Yup.string().required("Xizmat nomini kiriting"),
     price: Yup.number().required("Xizmat narxini kiriting"),
 })
+
+// -------------- ORDERS --------------
+
 export const ordersValidationSchema = Yup.object().shape({
     amount: Yup.string().required("Miqdorni kiriting"),
-    client_phonenumber: Yup.string().required("Mijozning telefon raqamini kiriting"),
-    cliet_full_name: Yup.string().required("Mijozning ismini kiriting"),
+    client_phone_number: Yup.string().required("Mijozning telefon raqamini kiriting"),
+    client_full_name: Yup.string().required("Mijozning ismini kiriting"),
     service_id: Yup.string().required("Xizmatni tanlang"),
 })

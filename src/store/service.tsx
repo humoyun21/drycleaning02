@@ -10,9 +10,6 @@ const useServiceStore = create<ServiceStore>((set) => ({
       set({ isLoading: true });
       const response = await services.get_services(params);
       if (response.status === 200) {
-        response?.data?.services?.forEach((item: any, index: number) => {
-          item.index = index + 1;
-        });
         set({ data: response?.data?.services });
       }
       set({ isLoading: false });
@@ -25,7 +22,12 @@ const useServiceStore = create<ServiceStore>((set) => ({
     try {
       const response = await services.post_services(data);
       if (response.status === 201) {
-        set((state) => ({ data: [...state.data, response.data] }));
+        set((state) => ({
+          data:
+            state?.data?.length < 10
+              ? [...state?.data, response?.data]
+              : [...state?.data],
+        }));
         return response.status;
       }
     } catch (error) {
@@ -36,7 +38,9 @@ const useServiceStore = create<ServiceStore>((set) => ({
     try {
       const response = await services.delete_service(id);
       if (response.status === 200) {
-        set((state) => ({ data: state.data.filter((item: any) => item.id!== id) }));
+        set((state) => ({
+          data: state.data.filter((item: any) => item.id !== id),
+        }));
         return response.status;
       }
     } catch (error) {
